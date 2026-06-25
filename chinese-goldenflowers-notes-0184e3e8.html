@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>炸金花 · 经典棋牌 · 稳定入口说明</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", sans-serif;
+      background: #f9f6f0; /* 米白基调 */
+      color: #2e2b27;
+      line-height: 1.7;
+      padding: 1.5rem;
+    }
+    .page-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fffcf7;
+      border-radius: 32px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      padding: 2.2rem 2rem 2.8rem;
+    }
+    /* hero 区 */
+    .hero {
+      text-align: center;
+      padding: 2.8rem 0.5rem 1.8rem;
+      border-bottom: 1px solid #ede6db;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #4d3e32;
+      margin-bottom: 0.5rem;
+    }
+    .hero .sub {
+      font-size: 1.12rem;
+      color: #6f6156;
+      background: #f3ede5;
+      display: inline-block;
+      padding: 0.2rem 1.6rem;
+      border-radius: 40px;
+      margin-top: 0.1rem;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 1.2rem auto 0;
+      font-size: 1.05rem;
+      color: #4a403a;
+    }
+
+    /* 卡片区块 */
+    .section-card {
+      background: #faf5ee;
+      border-radius: 28px;
+      padding: 1.8rem 1.8rem;
+      margin: 2.2rem 0;
+      border-left: 6px solid #cbb7a4;
+    }
+    .section-card h2 {
+      font-size: 1.6rem;
+      font-weight: 450;
+      color: #4a3b30;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .section-card h2::before {
+      content: "◆";
+      font-size: 1.1rem;
+      color: #ab8e78;
+      margin-right: 0.3rem;
+    }
+    .section-card p, .section-card li {
+      color: #3d352f;
+      font-size: 1rem;
+    }
+    .section-card ul {
+      padding-left: 1.3rem;
+      list-style: none;
+    }
+    .section-card li {
+      margin-bottom: 0.45rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+    .section-card li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #a3856c;
+      font-weight: bold;
+    }
+
+    /* 引用块 / 提示框 */
+    .quote-box {
+      background: #efe8de;
+      padding: 1.4rem 2rem;
+      border-radius: 40px 12px 40px 12px;
+      margin: 1.8rem 0;
+      font-style: normal;
+      border: 1px solid #e0d5c6;
+      color: #3d342d;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+    }
+    .quote-box strong {
+      color: #5b4a3b;
+    }
+
+    /* 优势区块—— 用更轻的网格 */
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.6rem 0 0.4rem;
+    }
+    .adv-item {
+      background: #fffcf7;
+      border-radius: 24px;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid #e6ddd2;
+      transition: all 0.1s ease;
+    }
+    .adv-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #4f3f33;
+      margin-bottom: 0.25rem;
+    }
+    .adv-item p {
+      font-size: 0.95rem;
+      color: #5a4d42;
+    }
+
+    /* faq 摘要 */
+    .faq-mini {
+      margin: 2.2rem 0 1.6rem;
+      padding: 1.2rem 1.4rem;
+      background: transparent;
+      border-top: 1px dashed #d7cdbe;
+      border-bottom: 1px dashed #d7cdbe;
+    }
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      color: #4f3e32;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      font-size: 1rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .faq-mini summary::before {
+      content: "▸";
+      margin-right: 0.6rem;
+      color: #a1836b;
+      font-size: 1rem;
+    }
+    .faq-mini details[open] summary::before {
+      content: "▾";
+    }
+    .faq-mini .answer {
+      padding: 0.3rem 0 0.4rem 1.6rem;
+      color: #4c4038;
+      font-size: 0.96rem;
+    }
+
+    /* 底部链接区域 */
+    .footer-links {
+      margin-top: 2.8rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid #e5dbcf;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #5f5349;
+    }
+    .footer-links a {
+      color: #6f5747;
+      text-decoration: none;
+      border-bottom: 1px dotted #b7a392;
+      transition: border 0.2s;
+    }
+    .footer-links a:hover {
+      border-bottom: 1px solid #6f5747;
+    }
+    .footer-links .sep {
+      margin: 0 0.8rem;
+      color: #c5b5a4;
+    }
+
+    /* 响应式 */
+    @media (max-width: 580px) {
+      .page-wrap { padding: 1.2rem 1rem; }
+      .hero h1 { font-size: 2.1rem; }
+      .advantage-grid { grid-template-columns: 1fr; }
+      .section-card { padding: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <!-- hero 区 -->
+  <div class="hero">
+    <h1>炸金花 · 经典规则</h1>
+    <div class="sub">稳定 · 清晰 · 随时翻看</div>
+    <p>无论你是第一次听说，还是想回顾细节，这里都提供一份安静的说明页。没有弹窗，没有跳转骚扰，只有关于<a href="https://chinese-goldenflowers.com" style="color:#6f5747; text-decoration: underline; text-underline-offset: 3px;">炸金花</a>的基本介绍与常见疑问。</p>
+  </div>
+
+  <!-- 说明区：同时涵盖介绍+特点整合 -->
+  <div class="section-card">
+    <h2>什么是炸金花</h2>
+    <p>炸金花是一种流行于民间的扑克牌比较游戏，使用一副除去大小王的52张牌。每位参与者获得三张手牌，通过比大小、对子、顺子、金花、同花顺等牌型决定胜负。规则简明，节奏明快，适合三五好友小聚时消遣。</p>
+    <p style="margin-top: 0.8rem;">它之所以长盛不衰，是因为每一局都融合了运气与判断——何时跟注、何时放弃，往往比手牌本身更考验人的定力。也正是这种微妙的博弈感，让它在不同年代都有一批稳定的爱好者。</p>
+  </div>
+
+  <!-- 优势区：以网格卡片呈现 -->
+  <div class="advantage-grid">
+    <div class="adv-item">
+      <h3>规则稳定</h3>
+      <p>各地玩法虽有细微差异，但核心牌型与大小关系基本一致。掌握一套通用规则就能应对多数对局。</p>
+    </div>
+    <div class="adv-item">
+      <h3>无需复杂设备</h3>
+      <p>一副扑克、三五个人、一小块桌面即可开始。不依赖电子设备，回归面对面的交流。</p>
+    </div>
+    <div class="adv-item">
+      <h3>节奏自主掌控</h3>
+      <p>没有固定时间限制，每一局、每一轮都由参与者共同决定。快可一分钟一局，慢可细细思量。</p>
+    </div>
+    <div class="adv-item">
+      <h3>适合线下小聚</h3>
+      <p>作为聚会中的轻量级活动，炸金花不需要太多准备，却能自然带动气氛，拉近距离。</p>
+    </div>
+  </div>
+
+  <!-- 引用块 / 提示框 用作温和提醒 -->
+  <div class="quote-box">
+    <strong>💡 一点提示：</strong> 任何棋牌游戏，娱乐为主、平常心最佳。不提倡过度投入，也不建议在非休闲场合勉强凑局。轻松对待，反而更能体会其中趣味。
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h2 style="font-size:1.3rem; font-weight:450; color:#4d3e32; margin-bottom:0.6rem;">常见疑问 · 简答</h2>
+    <details>
+      <summary>炸金花里“金花”是什么意思？</summary>
+      <div class="answer">指三张牌花色相同，例如三张全是红桃。金花大于顺子，但小于同花顺。</div>
+    </details>
+    <details>
+      <summary>如果有两人都是对子，怎么比大小？</summary>
+      <div class="answer">先比对子的大小，对子相同则比较剩下那张单牌（俗称“踢脚”）。若仍相同则视为平局。</div>
+    </details>
+    <details>
+      <summary>游戏最少需要几个人？</summary>
+      <div class="answer">通常建议3人以上，最常见是3–6人。两人也可以玩，但策略和趣味性会有所不同。</div>
+    </details>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <span>想了解更完整的规则与背景？</span>
+    <a href="https://chinese-goldenflowers.com">炸金花</a>
+    <span class="sep">·</span>
+    <span style="color:#7b6b5d;">温和提示：仅作介绍，请理性娱乐</span>
+  </div>
+</div>
+</body>
+</html>
