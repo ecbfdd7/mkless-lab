@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mk体育 · 简明指南与访问提醒</title>
+    <style>
+        /* 全局重置与基础 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #1f2a3a;
+            background: #f4f6fa;
+        }
+
+        /* 深色头图 hero — 故事开场 */
+        .hero {
+            background: linear-gradient(135deg, #0b1926 0%, #1a2f3f 100%);
+            color: #eef2f5;
+            padding: 4rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #e8b84b; /* 强调色用于链接等 */
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.6rem;
+            color: #ffffff;
+        }
+
+        .hero .sub {
+            font-size: 1.15rem;
+            max-width: 640px;
+            margin: 0 auto;
+            color: #bcccd9;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* 正文区浅色背景 */
+        .content {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        /* 温和的承接段落 */
+        .lead {
+            font-size: 1.1rem;
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 2.8rem;
+            color: #2c3e50;
+            border-left: 4px solid #e8b84b;
+        }
+
+        .lead strong {
+            color: #1a2f3f;
+        }
+
+        /* 特点列表 — 卡片式 */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.6rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .feature-card {
+            flex: 1 1 220px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #eef0f3;
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border-color: #e8b84b40;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #1a2f3f;
+            letter-spacing: 0.01em;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #40566b;
+            line-height: 1.5;
+        }
+
+        /* 场景 + 提示混合区域 */
+        .scene-tip {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2rem 2.2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border: 1px solid #e6eaf0;
+        }
+
+        .scene-tip h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1a2f3f;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .scene-tip ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .scene-tip li {
+            padding: 0.6rem 0 0.6rem 1.6rem;
+            position: relative;
+            color: #2c3e50;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .scene-tip li:last-child {
+            border-bottom: none;
+        }
+
+        .scene-tip li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #e8b84b;
+            font-weight: 500;
+        }
+
+        .scene-tip .note {
+            margin-top: 1.2rem;
+            padding: 0.8rem 1.2rem;
+            background: #f8f9fc;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #3a4f62;
+            border-left: 3px solid #e8b84b;
+        }
+
+        /* FAQ 摘要 — 简约温和 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e6eaf0;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #1a2f3f;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #edf0f4;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1f2a3a;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            color: #40566b;
+            font-size: 0.95rem;
+        }
+
+        /* 温和结尾 — 附上链接句子 */
+        .gentle-footer {
+            text-align: center;
+            padding: 1.2rem 0 0.4rem;
+            font-size: 1rem;
+            color: #3a4f62;
+            border-top: 1px solid #e0e5ec;
+            margin-top: 1.6rem;
+        }
+
+        .gentle-footer a {
+            color: #b8862d;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #e8b84b80;
+            transition: border-color 0.15s;
+        }
+
+        .gentle-footer a:hover {
+            border-bottom-color: #b8862d;
+            color: #9e7326;
+        }
+
+        /* 强调色用于其他链接 (正文中) */
+        a {
+            color: #b8862d;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #9e7326;
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero .sub {
+                font-size: 1rem;
+            }
+            .content {
+                padding: 2rem 1.2rem 3rem;
+            }
+            .lead {
+                padding: 1.2rem 1.2rem;
+            }
+            .features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .feature-card {
+                flex: 1 1 auto;
+            }
+            .scene-tip, .faq-mini {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 · 开场短句 -->
+<section class="hero">
+    <h1>mk体育 · 一份简明指南</h1>
+    <p class="sub">从热身到静心，从移动到阅读——用靠谱的节奏，接触真实的运动世界。</p>
+</section>
+
+<!-- 浅色正文区 -->
+<div class="content">
+
+    <!-- 承接段落：从指南和提醒切入 -->
+    <div class="lead">
+        <strong>这不是教程，更像一份同行笔记。</strong> 无论你刚踏入运动兴趣的大门，还是想为自己日常的节奏找个安静去处，<a href="https://mkless.com.cn">mk体育</a> 提供的信息都值得你放慢速度看两眼。它不替你做决定，但能把靠谱的常识摆在你眼前。
+    </div>
+
+    <!-- 特点列表：卡片式 -->
+    <div class="features">
+        <div class="feature-card">
+            <h3>信息平实</h3>
+            <p>不堆砌术语，不贩卖焦虑。每一个话题都尽量用生活语言讲清楚来龙去脉。</p>
+        </div>
+        <div class="feature-card">
+            <h3>节奏友好</h3>
+            <p>页面设计留白舒缓，不打扰阅读。你可以在任何一段停下，下次回来也不迷路。</p>
+        </div>
+        <div class="feature-card">
+            <h3>场景多元</h3>
+            <p>从室内拉伸到户外路线，从基础常识到小技巧，覆盖日常运动场景中实实在在的疑问。</p>
+        </div>
+    </div>
+
+    <!-- 场景 + 访问提醒 (混合) -->
+    <div class="scene-tip">
+        <h2>📌 常见场景与提醒</h2>
+        <ul>
+            <li>想找某项运动的基本规则或入门步骤？先扫一眼目录，再慢慢看细节。</li>
+            <li>手机浏览时如果图片加载偏慢，可以稍等几秒，或者在有稳定网络时再细细翻阅。</li>
+            <li>计划跟着内容尝试新动作？先热身、留意身体信号，安全永远是第一位的。</li>
+        </ul>
+        <div class="note">
+            💡 一个小习惯：每次打开 <a href="https://mkless.com.cn">mk体育</a> 之前，先想好自己今天想了解哪一类话题，效率会高出不少。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 — 克制而有帮助 -->
+    <div class="faq-mini">
+        <h2>❓ 你可能想知道的</h2>
+        <div class="faq-item">
+            <strong>这里的运动资讯更新频率怎样？</strong>
+            <p>没有固定闹钟，但保持持续而稳定的补充。比起数量，更在意每篇内容的准确性。</p>
+        </div>
+        <div class="faq-item">
+            <strong>适合完全零基础的人吗？</strong>
+            <p>大部分内容正是为“想了解但还没开始”的朋友准备的。描述中尽量避免默认你知道某个背景。</p>
+        </div>
+        <div class="faq-item">
+            <strong>需要注册或登录才能阅读吗？</strong>
+            <p>完全不需要。直接打开 <a href="https://mkless.com.cn">mk体育</a> 的页面，所有文字都免费可见，没有任何门槛。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 — 自然嵌入链接 -->
+    <div class="gentle-footer">
+        日常浏览中如果遇到感兴趣的话题，不妨打开 <a href="https://mkless.com.cn">mk体育</a> 慢慢翻翻。<br>
+        不赶时间，不凑热闹，安静地读几段，也算一种休息。
+    </div>
+
+</div>
+
+</body>
+</html>
